@@ -22,42 +22,28 @@ cd /your path/MetaAMI
 pip install .
 ```
 ## Tutorials
-### Jupyter notebook
-1. Modify the System Path and import module
+### how to use the method
 ```bash
-import sys; sys.path.append('MetaAMI')
-from MetaAMI import MetaAMI
-```
-2. unzip and read the test file
-```bash
-test = pd.read_csv('test.csv', index_col=0)
-```
-3. AMI risk prediction
-```bash
-MetaAMI.Predict(xxx)
-```
-   some explain.
+from MetaAMI import MetaAMIConfig, run_metaami
 
-4. Example Outputs
+cfg = MetaAMIConfig(
+    data_path="data/feature.csv",
+    label_path="data/label.csv",
+    output_dir="results/metaami_run",
+    id_col="hadm_id",
+    label_col="label",
+    rp_dim=10,  #random projection dimention
+    n_rp=10,  #number of random projection
+    n_splits=10,
+    n_repeats=1, #repeat times of random projection
+    models=("lr", "svm", "rf", "xgb", "mlp", "ae_mlp", "ot_mlp", "transformer"),
+    meta_model="svm_rbf",
+    threshold=0.5,
+    threshold_strategy="youden",
+)
 
-![Example Outputs](output.png)
-
-The prediction results will be stored and exported to the Prediction_results.csv
-
-### Predicting New Patient Samples
-1. Prepare the input file
-   Format: test result matrix with **test names** as columns and **patient id** as rows. Save your file as new_patient_testresult.csv.
-2. Load your new patient data
-```bash
-import pandas as pd
-new_patient = pd.read_csv('new_patient_testresult.csv', index_col=0)
+run_metaami(cfg)
 ```
-3. Run prediction using the trained RanBALL model
-```bash
-from MetaAMI import MetaAMI
-RanBALL.Predict(xxx)
-```
-   After running the command, the prediction results will appear in Prediction_results.csv
 ## Bug Report
 
 If you find any bugs or problems, or you have any comments on MetaAMI, please don't hesitate to contact via email btuerhanbayi@unmc.edu or [Issues](https://github.com/wan-mlab/MetaAMI/issues).
@@ -66,7 +52,5 @@ If you find any bugs or problems, or you have any comments on MetaAMI, please do
 Bulidierxin Tuerhanbayi, Shibiao Wan
 
 ## Publication
-xxx
 
 ## License 
-xxxxx
