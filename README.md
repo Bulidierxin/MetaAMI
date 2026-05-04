@@ -1,4 +1,4 @@
-# MetaAMI: A Novel Meta-Learning Approach for Predicting In-Hospital Mortality in Acute Myocardial Infarction
+# MetaAMI: A Novel <ins>Meta</ins>-Learning Approach for Predicting In-Hospital Mortality in <ins>A</ins>cute <ins>M</ins>yocardial <ins>I</ins>nfarction
 
 **MetaAMI** (A Novel Meta-Learning Approach for Predicting In-Hospital Mortality in Acute Myocardial Infarction)is an accurate and cost-effective meta-learning model for predicting in-hospital mortality in acute myocardial infarction patients using routinely collected clinical features. By combining random projection with stacked ensemble learning and an SVM meta-learner, **MetaAMI** provides reliable risk prediction and supports clinical decision-making for early mortality risk stratification.
 
@@ -22,7 +22,7 @@ cd /your path/MetaAMI
 pip install .
 ```
 ## Tutorials
-### how to use the method
+how to use the method
 ```bash
 from MetaAMI import MetaAMIConfig, run_metaami
 
